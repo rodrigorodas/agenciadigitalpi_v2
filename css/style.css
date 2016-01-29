@@ -307,6 +307,16 @@ ul.social li i.pin{
 	margin: 0px;
 	padding: 0px;
 }
+.slider-top ul.social-slide2{
+	display:inline-flex;
+	margin: 0px;
+	padding: 0px;
+}
+.slider-top ul.social-slide3{
+	display:inline-flex;
+	margin: 0px;
+	padding: 0px;
+}
 ul.social-slide li i{
 	width:70px;
 	height:74px;
@@ -321,6 +331,38 @@ ul.social-slide li i.android{
 	background-position:-110px 0px;
 }
 ul.social-slide li i.mac{
+	background-position:-215px 0px;
+}
+ul.social-slide2 li i{
+	width:70px;
+	height:74px;
+	background:url(../images/img-resources2.png)no-repeat;
+	display: inline-block;
+	margin:0px 15px;
+}
+ul.social-slide2 li i.win2{
+	background-position:-6px 0px;
+}
+ul.social-slide2 li i.android2{
+	background-position:-110px 0px;
+}
+ul.social-slide2 li i.mac2{
+	background-position:-215px 0px;
+}
+ul.social-slide3 li i{
+	width:70px;
+	height:74px;
+	background:url(../images/img-resources3.png)no-repeat;
+	display: inline-block;
+	margin:0px 15px;
+}
+ul.social-slide3 li i.win3{
+	background-position:-6px 0px;
+}
+ul.social-slide3 li i.android3{
+	background-position:-110px 0px;
+}
+ul.social-slide3 li i.mac3{
 	background-position:-215px 0px;
 }
 .callbacks_tabs li{
