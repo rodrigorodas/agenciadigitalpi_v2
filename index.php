@@ -254,34 +254,54 @@ right: 1.5em;
 		<div class="container">
 			<div class="footer-top">
 				<h3>Cont&aacute;ctenos</h3>
-				<p>Si est&aacute; interesado en nuestros servicios pueden ingresar sus correo y nos pondremos en contacto con usted en la brevedad posible.</p>
-				<form method="post" action="contacto.php">
-					<input type="text" name="email" value="Ingrese su correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Ingrese su correo para enviar';}">
-					<input type="submit"/>
-					<? 
+				<p>Si est&aacute; interesado en nuestros servicios ingrese sus datos y nos pondremos en contacto con usted en la brevedad.</p>
+				<form method="post" action="index.php">
+					<div class="col-md-3">
+						<label style="color: #FFFFFF">Nombre:</label>
+						<input type="text" name="nombre" placeholder="Juan Perez" required>
+					</div>
+					<div class="col-md-3">
+						<label style="color: #FFFFFF">Tel:</label>
+						<input type="text" name="telefono" placeholder="0000 000 000" required>
+					</div>
+					<div class="col-md-4">
+						<label style="color: #FFFFFF">Email:</label>
+						<input type="text" name="email" placeholder="hola@ejemplo.com" required>
+					</div>
+					<div class="col-md-2">
+						<input type="submit" name="enviar_btn"/>
+					</div>
+<? 
 
-						@$email = addslashes($_POST['email']);
+@$nombre = addslashes($_POST['nombre']);
+@$telefono = addslashes($_POST['telefono']);
+@$email = addslashes($_POST['email']);
 
-						$cabeceras = "From: $email\n" 
-						"Reply-To: $email\n";
-						$asunto = "Mensaje enviado desde PI"; 
-						$email_to = "3.14@agenciadigitalpi.com"; 
-						$contenido = "$nombre ha enviado un mensaje desde www.agenciadigitalpi.com\n"
-						"\n"
-						"Email: $email\n";
+$cabeceras = "From: $email\n" 
+ . "Reply-To: $email\n";
+$asunto = "Mensaje enviado desde la Agencia Digital Pi"; 
+$email_to = "3.14@agenciadigitalpi.com"; 
+$contenido = "$nombre ha enviado un mensaje desde la web de Agencia Digital Pi\n"
+. "\n"
+. "Nombre: $nombre\n"
+. "Email: $email\n"
 
-						if (empty($_POST['email'])) {
-						  echo("");
-						} else {
+. "Telefono: $telefono\n"
+. "\n";
 
-						if (@mail($email_to, $asunto ,$contenido ,$cabeceras )) {
-						echo"<center>";
-						echo("Gracias, su mensaje se envió correctamente.");
-						}else{
-						 
-						die("Error: Su información no pudo ser enviada, intente más tarde"); echo "</center>";
-						} }
-					?>
+if (empty($_POST['email'])) {
+  echo("");
+} else {
+
+if (@mail($email_to, $asunto ,$contenido ,$cabeceras )) {
+echo"<center>";
+echo("<p style='color: #FFFFFF'>Gracias, su mensaje se envi&oacute; correctamente, en breve nos pondremos en contacto con usted.</p>");
+}else{
+ 
+die("<p style='color: #FFFFFF'>Error: Su informaci&oacute;n no pudo ser enviada, intente m&aacute;s tarde.</p>"); echo "</center>";
+} }
+
+?>
 				</form>
 			</div>
 			<div class="row footer-row">
@@ -303,10 +323,10 @@ right: 1.5em;
 						<li><a href="#home">Inicio</a></li>
 						<li><a href="#pi">Sobre Pi</a></li>
 						<li><a href="#quehacemos">Qu&eacute; hacemos?</a></li>
-						<li><a href="http://www.agenciadigitalpi.com/archivos/terminos.pdf">T&eacute;rminos</a></li>
+						<li><a href="http://www.agenciadigitalpi.com/archivos/terminos.pdf" target="_blank">T&eacute;rminos</a></li>
 					</ul>
 				</div>
-				<!--<div class="col-md-2 footer-row-column">
+				<!--<div class="col-md-6 footer-row-column">
 					<ul class="footer-add">
 						<li><a href="#">Download</a></li>
 						<li><a href="#">Support</a></li>
