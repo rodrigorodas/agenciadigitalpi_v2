@@ -254,9 +254,35 @@ right: 1.5em;
 		<div class="container">
 			<div class="footer-top">
 				<h3>Cont&aacute;ctenos</h3>
-				<p>Si est&aacute; interesado en nuestros servicios pueden ingresar sus datos y nos pondremos en contacto con usted en la brevedad posible.</p>
-				<input type="text" value="Ingrese su correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email to Update';}">
-				<input type="submit"/>
+				<p>Si est&aacute; interesado en nuestros servicios pueden ingresar sus correo y nos pondremos en contacto con usted en la brevedad posible.</p>
+				<form method="post" action="contacto.php">
+					<input type="text" name="email" value="Ingrese su correo" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Ingrese su correo para enviar';}">
+					<input type="submit"/>
+					<? 
+
+						@$email = addslashes($_POST['email']);
+
+						$cabeceras = "From: $email\n" 
+						"Reply-To: $email\n";
+						$asunto = "Mensaje enviado desde PI"; 
+						$email_to = "3.14@agenciadigitalpi.com"; 
+						$contenido = "$nombre ha enviado un mensaje desde www.agenciadigitalpi.com\n"
+						"\n"
+						"Email: $email\n";
+
+						if (empty($_POST['email'])) {
+						  echo("");
+						} else {
+
+						if (@mail($email_to, $asunto ,$contenido ,$cabeceras )) {
+						echo"<center>";
+						echo("Gracias, su mensaje se envió correctamente.");
+						}else{
+						 
+						die("Error: Su información no pudo ser enviada, intente más tarde"); echo "</center>";
+						} }
+					?>
+				</form>
 			</div>
 			<div class="row footer-row">
 				<div class="col-md-2 footer-row-column">
